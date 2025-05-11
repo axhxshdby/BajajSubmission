@@ -31,12 +31,15 @@ ORDER BY
     e1.EMP_ID DESC;"""
 
 
-header = {
-    'Authorization' : acess_token
-    'Content-Type': 'application/json'
+headers = {
+    "Authorization": acess_token,
+    "Content-Type": "application/json"
 }
+
 payload = {
     "finalquery" : sql_query
 }
 
-response= requests.post(webhook_url, headers=header, json=payload)
+response= requests.post(webhook_url, headers=headers, json=payload)
+print("Status Code:", response.status_code)
+print("Response:", response.json())
